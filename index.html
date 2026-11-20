@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Impulsa Mujer Ibagué</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #fff8fb;
+    color: #333;
+}
+
+header {
+    background: #8d315d;
+    color: white;
+    padding: 22px 8%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 18px;
+}
+
+.hero {
+    background: #f3dce7;
+    padding: 65px 8%;
+    text-align: center;
+}
+
+.hero h1 {
+    color: #752449;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 7px;
+    padding: 11px 18px;
+    background: #8d315d;
+    color: white;
+}
+
+.hero button {
+    margin-top: 22px;
+}
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+h2 {
+    color: #752449;
+    margin-bottom: 20px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.filters button {
+    background: #ead1de;
+    color: #752449;
+}
+
+.filters button.active {
+    background: #8d315d;
+    color: white;
+}
+
+.search {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d8b9c9;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px #00000012;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 17px;
+}
+
+.card h3 {
+    color: #752449;
+    margin-bottom: 8px;
+}
+
+.card p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.category {
+    color: #8d315d;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.card button {
+    width: 100%;
+}
+
+.info {
+    background: #f3dce7;
+    padding: 35px;
+    border-radius: 12px;
+    margin-top: 40px;
+    line-height: 1.7;
+}
+
+footer {
+    background: #752449;
+    color: white;
+    padding: 25px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+@media(max-width:600px) {
+    .hero h1 {
+        font-size: 27px;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+    <div class="logo">Impulsa Mujer</div>
+    <div>
+        <a href="#inicio">Inicio</a>
+        <a href="#catalogo">Emprendimientos</a>
+        <a href="#nosotros">Nosotros</a>
+    </div>
+</nav>
+</header>
+
+<section class="hero" id="inicio">
+    <h1>El talento de nuestras mujeres merece crecer</h1>
+    <p>
+        Conectamos emprendimientos liderados por mujeres
+        con nuevos clientes y oportunidades comerciales.
+    </p>
+    <button onclick="document.getElementById('catalogo')
+    .scrollIntoView({behavior:'smooth'})">
+        Explorar emprendimientos
+    </button>
+</section>
+
+<main class="container" id="catalogo">
+
+<h2>Conoce nuestros emprendimientos</h2>
+
+<input
+    class="search"
+    id="busqueda"
+    type="text"
+    placeholder="Buscar productos o emprendimientos..."
+    oninput="mostrarProductos()"
+>
+
+<div class="filters">
+    <button class="active" onclick="filtrar('Todos',this)">Todos</button>
+    <button onclick="filtrar('Accesorios',this)">Accesorios</button>
+    <button onclick="filtrar('Alimentos',this)">Alimentos</button>
+    <button onclick="filtrar('Belleza',this)">Belleza</button>
+    <button onclick="filtrar('Artesanías',this)">Artesanías</button>
+</div>
+
+<div class="products" id="productos"></div>
+
+<section class="info" id="nosotros">
+    <h2>Sobre Impulsa Mujer Ibagué</h2>
+    <p>
+        Somos una propuesta de emprendimiento social orientada
+        al fortalecimiento de los negocios liderados por mujeres.
+        Buscamos promover la capacitación en marketing digital,
+        la visibilidad comercial y el acompañamiento empresarial.
+    </p>
+    <br>
+    <p><strong>Nuestros tres componentes:</strong></p>
+    <p>1. Capacitación en marketing digital y gestión comercial.</p>
+    <p>2. Vitrina digital colectiva.</p>
+    <p>3. Acompañamiento comercial.</p>
+</section>
+
+</main>
+
+<footer>
+    <p>Impulsa Mujer Ibagué</p>
+    <p>Visibilizando el talento y fortaleciendo emprendimientos.</p>
+    <small>Prototipo académico - 2026</small>
+</footer>
+
+<script>
+
+const emprendimientos = [
+    {
+        nombre: "Dulces Tradicionales",
+        categoria: "Alimentos",
+        descripcion: "Ejemplo de emprendimiento de productos de repostería.",
+        imagen: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600"
+    },
+    {
+        nombre: "Accesorios Creativos",
+        categoria: "Accesorios",
+        descripcion: "Ejemplo de accesorios elaborados artesanalmente.",
+        imagen: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=600"
+    },
+    {
+        nombre: "Belleza Natural",
+        categoria: "Belleza",
+        descripcion: "Ejemplo de productos de cuidado personal.",
+        imagen: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=600"
+    },
+    {
+        nombre: "Manos Artesanas",
+        categoria: "Artesanías",
+        descripcion: "Ejemplo de productos y trabajos artesanales.",
+        imagen: "https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?w=600"
+    }
+];
+
+let categoriaActual = "Todos";
+
+function mostrarProductos() {
+
+    const busqueda = document
+        .getElementById("busqueda")
+        .value.toLowerCase();
+
+    const contenedor = document.getElementById("productos");
+
+    const resultados = emprendimientos.filter(item => {
+
+        const coincideCategoria =
+            categoriaActual === "Todos" ||
+            item.categoria === categoriaActual;
+
+        const coincideBusqueda =
+            item.nombre.toLowerCase().includes(busqueda) ||
+            item.categoria.toLowerCase().includes(busqueda);
+
+        return coincideCategoria && coincideBusqueda;
+    });
+
+    contenedor.innerHTML = "";
+
+    if (resultados.length === 0) {
+        contenedor.innerHTML = "<p>No se encontraron emprendimientos.</p>";
+        return;
+    }
+
+    resultados.forEach(item => {
+
+        contenedor.innerHTML += `
+            <article class="card">
+                <img src="${item.imagen}" alt="${item.nombre}">
+                <div class="card-content">
+                    <span class="category">${item.categoria}</span>
+                    <h3>${item.nombre}</h3>
+                    <p>${item.descripcion}</p>
+                    <button onclick="contactar('${item.nombre}')">
+                        Consultar emprendimiento
+                    </button>
+                </div>
+            </article>
+        `;
+
+    });
+}
+
+function filtrar(categoria, boton) {
+
+    categoriaActual = categoria;
+
+    document.querySelectorAll(".filters button")
+        .forEach(btn => btn.classList.remove("active"));
+
+    boton.classList.add("active");
+
+    mostrarProductos();
+}
+
+function contactar(nombre) {
+    alert(
+        "Has seleccionado: " + nombre +
+        ". En la implementación real se agregará " +
+        "el enlace de WhatsApp de la emprendedora."
+    );
+}
+
+mostrarProductos();
+
+</script>
+
+</body>
+</html>
